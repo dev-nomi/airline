@@ -2,10 +2,34 @@
 
 {% block body %}
   <br>
-  <h1>Flights</h1>
-  <ul>
-    {% for flight in flights %}
-      <li> {{ flight }}</li>
-    {% endfor %}
-  </ul>
+  <div class="container">
+    <h1>Flights</h1>
+    <br>
+    <table class="table">
+      <caption>List of flights</caption>
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Origin</th>
+          <th scope="col">Destination</th>
+          <th scope="col">Duration</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for flight in flights %}
+          <tr>
+            <th scope="row">{{ flight.id }}</th>
+            <td>{{ flight.origin }}</td>
+            <td>{{ flight.destination }}</td>
+            <td>{{ flight.duration }}</td>
+            <td>
+              <a type="button" class="btn btn-outline-success" href="{% url 'flights:show' flight.id %}">Show</a>
+              <a type="button" class="btn btn-outline-danger" href="" >Delete</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 {% endblock %}

@@ -1,0 +1,25 @@
+{% extends "flights/layout.html" %}
+
+{% block body %}
+  <br>
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-header text-center">
+            Flight No.{{ flight.id }}
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Flight Information</h5>
+            <p class="card-text">
+              <p>Origin : {{ flight.origin }}</p>
+              <p>Destination : {{ flight.destination }}</p>
+              <p>Duration : {{ flight.duration }}</p>
+            </p>
+            <a href="{% url 'flights:index' %}" class="btn btn-outline-primary">List of flights</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -12,3 +12,8 @@ def index(request):
   return render(request,'flights/index.html',{
     'flights' : Flight.objects.all()
   })
+
+def show(request,flight_id):
+  return render(request,'flights/show.html',{
+    'flight': Flight.objects.get(pk=flight_id)
+  })
